@@ -1,0 +1,25 @@
+{
+  "name": "corvidseveryhour",
+  "version": "1.0.0",
+  "description": "corvids!",
+  "main": "index.js",
+  "dependencies": {
+    "cron": "^2.0.0",
+    "twitter-api-v2": "^1.12.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "npm index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karinchung/corvidsEveryHour.git"
+  },
+  "author": "karin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karinchung/corvidsEveryHour/issues"
+  },
+  "homepage": "https://github.com/karinchung/corvidsEveryHour#readme"
+}
