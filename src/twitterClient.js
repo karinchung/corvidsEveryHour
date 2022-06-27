@@ -1,10 +1,18 @@
+require('dotenv').config();
 const { TwitterApi } = require('twitter-api-v2');
 
+const {
+  API_KEY,
+  API_SECRET,
+  ACCESS_TOKEN,
+  ACCESS_SECRET
+} = process.env;
+
 const twitterClient = new TwitterApi({
-    appKey: process.env.API_KEY, // use a secret manager instead?
-    appSecret: process.env.API_SECRET,
-    accessToken: process.env.ACCESS_TOKEN,
-    accessSecret: process.env.ACCESS_SECRET,
+    appKey: API_KEY, // use a secret manager instead?
+    appSecret: API_SECRET,
+    accessToken: ACCESS_TOKEN,
+    accessSecret: ACCESS_SECRET,
   }).readWrite
 
 module.exports = { twitterClient }
