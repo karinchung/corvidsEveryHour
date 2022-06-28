@@ -14,16 +14,12 @@ async function getCorvidImage() {
     const fileName = "";
     const destinationFileName = path.join(cwd, '/src/images/hourlyCorvid.jpg')
 
-    const listOptions = {
-        prefix: 'newCorvids/',
-        delimiter: '/' // ensures newCorvids is the immediate prefix instead of just somewhere in the url
-      };
-
-    const [files] = await storageClient.bucket(bucketName).getFiles(listOptions);
+    const [files] = await storageClient.bucket(bucketName).getFiles();
 
     const randomImageIndex = Math.floor(Math.random() * (files.length - 1));
     
-    const hourlyCorvid = files[randomImageIndex].metadata.name // ex: newCorvids/th-1219742473.jpg'
+    const hourlyCorvid = files[randomImageIndex].metadata.name // ex: th-1219742473.jpg
+    console.log('hourlyCorvid: ', hourlyCorvid)
 
     const downloadOptions = {
         destination: destinationFileName,

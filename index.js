@@ -12,15 +12,13 @@ async function postCorvid() {
 
         // upload image to twitter
         const mediaId = await twitterClient.v1.uploadMedia(jpgImg)
-        console.debug('mediaId', mediaId);
-        console.debug('about to post image');
 
         // post image as tweet
         await twitterClient.v1.tweet('', { media_ids: [mediaId] });
 
         // delete the image downloaded from the getCorvidImage step
-        fs.unlink(jpgImg, (e) => {
-            console.error('error unlinking', e)
+        await fs.unlink(jpgImg, (err) => {
+            if (err) console.error('error unlinking', err)
         });
     } catch (e) {
         console.error(e);
@@ -30,12 +28,13 @@ async function postCorvid() {
     }
 }
 
-const job = new CronJob(
-    '0 * * * * *', // every hour
-    () => {
-        console.debug('about to kick off corvid posting function')
-        postCorvid();
-    }
-)
+postCorvid();
 
-job.start();
+// const job = new CronJob(
+//     '0 * * * * *', // every hour
+//     () => {
+//         postCorvid();
+//     }
+// )
+
+// job.start();
