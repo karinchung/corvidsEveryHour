@@ -28,13 +28,11 @@ async function postCorvid() {
     }
 }
 
-postCorvid();
+const job = new CronJob(
+    '0 * * * * *', // every hour
+    () => {
+        postCorvid();
+    }
+)
 
-// const job = new CronJob(
-//     '0 * * * * *', // every hour
-//     () => {
-//         postCorvid();
-//     }
-// )
-
-// job.start();
+job.start();
