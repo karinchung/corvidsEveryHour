@@ -1,6 +1,7 @@
 require('dotenv').config();
 const path = require('path');
 const {Storage} = require('@google-cloud/storage');
+const { DESTINATION } = require('./constants');
 
 const { GOOGLE_PROJECT_ID, GCLOUD_STORAGE_BUCKET } = process.env;
 
@@ -12,7 +13,7 @@ async function getCorvidImage() {
     const cwd = path.join(__dirname, '..');
     const bucketName = GCLOUD_STORAGE_BUCKET;
     const fileName = "";
-    const destinationFileName = path.join(cwd, '/src/hourlyCorvid.jpg');
+    const destinationFileName = path.join(cwd, DESTINATION);
 
     const [files] = await storageClient.bucket(bucketName).getFiles();
 

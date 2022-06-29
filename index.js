@@ -3,6 +3,7 @@ const path = require('path');
 const CronJob = require('cron').CronJob;
 const { twitterClient } = require('./src/twitterClient.js');
 const { getCorvidImage } = require('./src/getCorvidImage');
+const { DESTINATION } = require('./src/constants');
 
 async function postCorvid() {
     try {
@@ -10,7 +11,7 @@ async function postCorvid() {
         await getCorvidImage();
 
         // upload the image to twitter
-        const jpgImg = path.resolve('src/hourlyCorvid.jpg');
+        const jpgImg = path.resolve(DESTINATION);
         const mediaId = await twitterClient.v1.uploadMedia(jpgImg)
 
         // post the image as a tweet
