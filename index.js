@@ -10,7 +10,7 @@ async function postCorvid() {
         await getCorvidImage();
 
         // upload the image to twitter
-        const jpgImg = path.resolve('src/images/hourlyCorvid.jpg');
+        const jpgImg = path.resolve('src/hourlyCorvid.jpg');
         const mediaId = await twitterClient.v1.uploadMedia(jpgImg)
 
         // post the image as a tweet
