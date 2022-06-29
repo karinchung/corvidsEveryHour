@@ -30,7 +30,7 @@ async function postCorvid() {
 }
 
 const job = new CronJob(
-    '0 * * * * *', // every hour
+    '0 * * * *', // every hour
     () => {
         postCorvid();
     }
