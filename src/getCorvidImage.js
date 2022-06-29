@@ -7,12 +7,13 @@ const { GOOGLE_PROJECT_ID, GCLOUD_STORAGE_BUCKET } = process.env;
 async function getCorvidImage() {
     const storageClient = new Storage({
         projectId: GOOGLE_PROJECT_ID
-    })
+    });
 
     const cwd = path.join(__dirname, '..');
     const bucketName = GCLOUD_STORAGE_BUCKET;
     const fileName = "";
-    const destinationFileName = path.join(cwd, '/src/images/hourlyCorvid.jpg')
+    const destinationFileName = path.join(cwd, '/src/images/hourlyCorvid.jpg');
+    console.log('final destination file: ', destinationFileName);
 
     const [files] = await storageClient.bucket(bucketName).getFiles();
 
@@ -26,7 +27,7 @@ async function getCorvidImage() {
 
     await storageClient.bucket(bucketName).file(hourlyCorvid).download(downloadOptions);
 
-    console.debug(
+    console.log(
         `gs://${bucketName}/${fileName} downloaded to ${destinationFileName}.`
     );
 
