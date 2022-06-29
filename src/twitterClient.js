@@ -9,7 +9,7 @@ const {
 } = process.env;
 
 const twitterClient = new TwitterApi({
-    appKey: API_KEY, // use a secret manager instead?
+    appKey: API_KEY,
     appSecret: API_SECRET,
     accessToken: ACCESS_TOKEN,
     accessSecret: ACCESS_SECRET,

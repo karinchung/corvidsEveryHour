@@ -19,7 +19,6 @@ async function getCorvidImage() {
     const randomImageIndex = Math.floor(Math.random() * (files.length - 1));
     
     const hourlyCorvid = files[randomImageIndex].metadata.name // ex: th-1219742473.jpg
-    console.log('hourlyCorvid: ', hourlyCorvid)
 
     const downloadOptions = {
         destination: destinationFileName,
